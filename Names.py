@@ -53,4 +53,15 @@ formatted = [names.rstrip() for names in active_patrons]
 VIP = ['<Exceptions>']
 formatted = [ele for ele in formatted if ele not in VIP]
 
-print(formatted)
+
+#adding pixiv users into the list
+pixiv = open('pixiv.txt')
+all_users = pixiv.readlines()
+
+for names in all_users:
+    formatted.append(names)
+
+#removing /n lines from the list
+users = [names.replace('\n', '') for names in formatted]
+
+print(users)
