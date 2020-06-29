@@ -1,6 +1,6 @@
 # Art Rewards Project
  Automating Patreon Rewards by utilizing the Patreon and Google Drive API with the PyDrive wrapper.
- Using the Patreon API to automatically get a list of all active Patrons. Pydrive matches these names from the list to all currently existing folders on the account and adds new folders if necessary (in case that new Patrons have joined). After creating the needed folders, it adds two new files, that fits each Patron's progress, to it as well.
+ Using the Patreon API to automatically get a list of all active Patrons. Pydrive matches these names from the list to all currently existing folders on the account and adds new folders if necessary (in case that new Patrons have joined). After creating the needed folders, it adds two new files, that fits each Patron's individual reward progressions, to it as well.
  Currently still WIP.
  
  # Requirements
