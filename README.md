@@ -21,6 +21,10 @@
  
  
  # Links
- Patreon API: https://github.com/Patreon/patreon-python  
- PyDrive: https://github.com/gsuitedevs/PyDrive
-
+ Patreon API: https://github.com/Patreon/patreon-python    
+ Patreon Dependencies: https://github.com/Patreon/patreon-python/blob/master/setup.py#L12  
+ Patreon Clients & API Key: https://www.patreon.com/portal/registration/register-clients  
+ PyDrive: https://github.com/gsuitedevs/PyDrive  
+ PyDrive Documentation: https://pythonhosted.org/PyDrive/  
+ PyDrive Setup YT Tutorial: https://www.youtube.com/watch?v=j31iVbkknzM  
+ 
