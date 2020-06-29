@@ -21,6 +21,6 @@
  
  
  # Links
- Patreon API: https://github.com/Patreon/patreon-python
+ Patreon API: https://github.com/Patreon/patreon-python  
  PyDrive: https://github.com/gsuitedevs/PyDrive
 
