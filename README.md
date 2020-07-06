@@ -7,6 +7,7 @@
  - Python 3+
  - `pip install patreon`
  - `pip install PyDrive`
+ - `pip install natsort`
  
  # Setup
  1. Install packages mentioned in Requirements
@@ -17,6 +18,8 @@
       (We don't need the redirect URI so just enter a random valid URL)
       
  4. Follow this [documentation](https://pythonhosted.org/PyDrive/quickstart.html) or [video tutorial](https://www.youtube.com/watch?v=j31iVbkknzM) to set up PyDrive in order to get your Google Drive authenticated
+ 
+ 5. Replace variables as shown in the comments in the script and run them.
  
  
  
