@@ -1,8 +1,22 @@
 from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
 
-#Get your GDrive Account authenticated
+#Get your GDrive Account automatically authenticated
 gauth = GoogleAuth()
+# Try to load saved client credentials
+gauth.LoadCredentialsFile("mycreds.txt")
+if gauth.credentials is None:
+    # Authenticate if they're not there
+    gauth.LocalWebserverAuth()
+elif gauth.access_token_expired:
+    # Refresh them if expired
+    gauth.Refresh()
+else:
+    # Initialize the saved creds
+    gauth.Authorize()
+# Save the current credentials to a file
+gauth.SaveCredentialsFile("mycreds.txt")
+
 drive = GoogleDrive(gauth)
 
 
@@ -46,3 +60,45 @@ elif new == 'y':
     print('Created folder!')
     access(email)
     print('Success!')
+
+add_art = input('Do you want to add 3 MRS to their folder? (y/n)\n>')
+
+mypath = "<YOUR PATH>"
+
+onlyfiles = [os.path.join(r,file) for r,d,f in os.walk(mypath) for file in f]
+files = natsort.natsorted(onlyfiles,reverse=True)
+
+
+file_list = drive.ListFile({'q': "'root' in parents and trashed=false"}).GetList()
+folder_names = [names['title'] for names in file_list]
+position = folder_names.index(name)
+folder_id = [names['id'] for names in file_list]
+id = folder_id[position]
+file_list_1 = drive.ListFile({'q': f"'{id}' in parents and trashed=false"}).GetList()
+file_names = [names['title'] for names in file_list_1]
+#print(file_names)
+
+onlyfiles1 = [f for f in listdir(mypath) if isfile(join(mypath, f))]
+files1 = natsort.natsorted(onlyfiles1,reverse=True)
+#print(files)
+
+y = 0
+x = 0
+z = 1
+
+filenr = f"file{z}"
+
+if add_art == 'y':
+    while x < 3:
+        artpath = files[y]
+        if files1[y] not in file_names:
+            filenr = drive.CreateFile({'title': files1[y], 'parents': [{'id': [id]}]})
+            filenr.SetContentFile(artpath)
+            filenr.Upload()
+            print(f"{z}. Illustration has been uploaded!")
+            z = z + 1
+            x = x + 1
+        y = y + 1
+
+if x is 3:
+    print("Finished uploading all illustrations!")
